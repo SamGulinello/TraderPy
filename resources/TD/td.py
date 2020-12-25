@@ -178,6 +178,8 @@ class TD():
         # Empty list to be populated with current positions
         currentPositions = {}
 
+        time.sleep(2)
+
         # Grab account positions
         for i in range(len(data[0]['securitiesAccount']['positions'])):
             symbol = data[0]['securitiesAccount']['positions'][i]['instrument']['symbol']

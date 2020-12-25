@@ -60,6 +60,8 @@ In the config file you need to include the name of the module and set it the the
 ```
 Your module will also need to include which index will be used for any analysis. The index options are located in the resource directory. A user can create their own custom index they will just need to specify it in the config.\
 \
+The main function is designed to run a module and expects it to return both a buy list and sell list. These will be added to a master list which will then be used by the main function to know what to buy and sell at the end of the day (duh). If for some reason the module does not need to add to these list please return two empyt lists or else an error will get thrown (ooh).\
+\
 Finally, the module must be located in it's own directory named the same as the file which as a main function in it. This program is set up to run a function called main in the file named the module. I am bad at describing this and it may sound confusing but look at the MovingAverage module. Do that.\
 \
 To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works. 

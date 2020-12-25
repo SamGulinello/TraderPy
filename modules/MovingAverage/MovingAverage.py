@@ -81,13 +81,6 @@ def main():
 
     return buyList, sellList
 
-# Instantiate each stock into a Stock object and append it to the stockObjects Array
-#for i in index:
-#    for n, j in enumerate(index[i]):
-#        index[i][n] = Stock(index[i][n])
-
-#main()
-
 
 
 
