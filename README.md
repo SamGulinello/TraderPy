@@ -55,7 +55,7 @@ In the config file you need to include the name of the module and set it the the
 {
     "module" : "MovingAverage",
     "buying_power_allocation": 30, # Percentage of available buying power
-    "index" : "TEST"
+    "index" : "S&P"
 }
 ```
 Your module will also need to include which index will be used for any analysis. The index options are located in the resource directory. A user can create their own custom index they will just need to specify it in the config.\
