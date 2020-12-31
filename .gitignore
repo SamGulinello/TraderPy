@@ -1,2 +1,4 @@
 config.py
 chromedriver.exe
+test.py
+*.pyc
