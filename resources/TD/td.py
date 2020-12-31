@@ -129,10 +129,7 @@ class TD():
         print('grabbing auth code')
         # grab the part we need, and decode it.
         parse_url = urllib.parse.unquote(new_url.split('code=')[1])
-        print(new_url)
-        #parse_url = urlparse(new_url.split('code=')[1])
-        #parse_url= urllib.unquote(parse_url.path)
-        print(parse_url)
+        
         # Close the browser
         browser.quit()
 
@@ -155,16 +152,14 @@ class TD():
         print('sending for headers')
         # convert it to a dictionary and grab access token
         decoded_content = authReply.json()
-        print(decoded_content)
+        
         access_token = decoded_content['access_token']
         headers = {'Authorization': "Bearer {}".format(access_token)}
 
         return(headers)
 
-    # Method to return a list of the current positions held along with the quantity of those positions
-    def getPositions(self):
-
-        print("grabing current positions")
+    # function to get the the infromation from the TD account endpoint
+    def accountEndpoint(self):
 
         # Define Accounts Headpoints
         endpoint = r"https://api.tdameritrade.com/v1/accounts"
@@ -174,6 +169,15 @@ class TD():
 
         # Convert it to a dictionary Method
         data = content.json()
+
+        return(data)
+
+    # Method to return a list of the current positions held along with the quantity of those positions
+    def getPositions(self):
+
+        print("grabing current positions")
+
+        data = self.accountEndpoint()
 
         # Empty list to be populated with current positions
         currentPositions = {}
@@ -196,14 +200,7 @@ class TD():
 
         print("grabbing account ID")
 
-        # Define Accounts Headpoints
-        endpoint = r"https://api.tdameritrade.com/v1/accounts"
-
-        # Make a Request
-        content = requests.get(url = endpoint, headers = self.headers)
-
-        # Convert it to a dictionary Method
-        data = content.json()
+        data = self.accountEndpoint()
         
         # Grab account ID
         account_id = data[0]['securitiesAccount']['accountId']
@@ -214,17 +211,50 @@ class TD():
     def getBuyingPower(self):
 
         print("grabbing buying power")
+        
+        data = self.accountEndpoint()
+
+        # Grab account ID
+        buyingPower = data[0]['securitiesAccount']['currentBalances']['buyingPower']
+        print("buying power: " + str(buyingPower))
+        return (buyingPower)
+
+    def getAccountValue(self):
+        print("grabbing account balance")
+
+        data = self.accountEndpoint()
+
+        #Grab Account Balance
+        #This is a sum of both value in holdings as well as buying power
+        balance = data[0]['securitiesAccount']['currentBalances']['liquidationValue']
+        print("Account Value: " + str(balance))
+
+        return(balance)
+
+    def getPositionData(self, ticker=""):
+        print("grabbing position data")
 
         # Define Accounts Headpoints
         endpoint = r"https://api.tdameritrade.com/v1/accounts"
 
         # Make a Request
-        content = requests.get(url = endpoint, headers = self.headers)
+        content = requests.get(url = endpoint, headers = self.headers, params={'fields':'positions'})
 
         # Convert it to a dictionary Method
         data = content.json()
-        
-        # Grab account ID
-        buyingPower = data[0]['securitiesAccount']['currentBalances']['buyingPower']
-        print("buying power: " + str(buyingPower))
-        return (buyingPower)
+
+        #Grab the Position Data Dictionary
+        positionData = data[0]['securitiesAccount']['positions']
+
+        # If ticker was given only return that position. If not then return all position data
+        if(ticker == ""):
+            return(positionData)
+        else:
+            try:
+                positionData = next((stock for stock in positionData if stock['instrument']['symbol'] == ticker))
+                return(positionData)
+            except:
+                return("Failed to get position data. Please ensure the ticker used is held in your portfolio")
+
+
+

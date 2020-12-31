@@ -1,5 +1,5 @@
 # **TraderPy**
-TraderPy is an open-source modular algorithmic trading platform. Through the use of interchangable modules it can take control of your TD Ameritrade portfolio and give you more time in your day. This Program uses the TD Ameritrade api to get real time market data and control a TD Ameritrade trading account. So far everything as been developed by me but I am looking for a growing number of people to contribute and make this as sophisticated of a system as possible. 
+TraderPy is an open-source modular algorithmic trading platform. Through the use of interchangable modules it can take control of your TD Ameritrade portfolio. This Program uses the TD Ameritrade api to get real time market data and control a TD Ameritrade trading account.
 
 ## Installation
 
@@ -65,6 +65,13 @@ The main function is designed to run a module and expects it to return both a bu
 Finally, the module must be located in it's own directory named the same as the file which as a main function in it. This program is set up to run a function called main in the file named the module. I am bad at describing this and it may sound confusing but look at the MovingAverage module. Do that.\
 \
 To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works. 
+
+## What's Next
+
+---
+
+The next deployment should include a few new things. First, I would like to add more methods to both the TD and Stock classes. The TD api has a lot to offer but the request system can be confusing at times. I would like to have these classes make getting data from TD Ameritrade as easy as possible. Next, I plan on documenting both those classes. There are already a number of cool things they can do but there is no way of knowing it without looking at the code. Documentation will either come in the form of another README or I have toyed with the idea of making a documentation website to accompany this project (will probably start with a README). Finally, I hope to develop a 'trailing stop' module. This will ensure the program doesn't hold a stock until the bitter end and will instead lock in a loss percentage value that will change as the stock hopefully goes up in value.
+
 ## Support
 
 ---

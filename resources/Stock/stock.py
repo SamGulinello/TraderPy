@@ -154,3 +154,5 @@ class Stock():
 
         # Send the request
         requests.post(url = endpoint, json = payload, headers = header)
+
+
