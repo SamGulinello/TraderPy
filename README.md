@@ -28,7 +28,7 @@ pip3 install -r requirements.txt
         - **What is the purpose of your application?:** Use cases of the application, trading strategy, number of orders sent per day, etc.
     - The new application will be displayed in [My Apps](https://developer.tdameritrade.com/user/me/apps) once it is successfully registered
     - For more information on this process, they provide good [guides](https://developer.tdameritrade.com/guides).
-6. This project uses a python library called selenium. It is used to for web scraping and is essentail for some of the methods to work. This  library requires a chrome driver to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an empty folder waiting for you to install the chrome driver into it. 
+6. This project uses a python library called selenium. It is used to for web scraping and is essentail for some of the methods to work. This  library requires a [chrome driver](https://chromedriver.chromium.org/downloads) to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an  folder waiting for you to install the chrome driver into it. Replace the sample driver with your newly installed version. 
 7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (*indicated in all caps text*)
     - Required information is as follows:
         - client_id: This is the **Consumer Key** of the successfully registered app on your TD Ameritrade developer account
@@ -41,6 +41,12 @@ pip3 install -r requirements.txt
 ```
 python3 main.py
 ```
+
+## Contribute
+
+---
+
+This project is still very early in development and I am currently seeking contributors. If you wish to contribute please fork the repository and make any changes to the code. Afterwards submit a pull request and I will review it. If you believe something is missing or done incorrectly feel free to change it and explain why. This project has always been a learning excersise for me and I continue to keep it as that.
 
 ## Creating a module
 
@@ -62,7 +68,7 @@ Your module will also need to include which index will be used for any analysis.
 \
 The main function is designed to run a module and expects it to return both a buy list and sell list. These will be added to a master list which will then be used by the main function to know what to buy and sell at the end of the day. If for some reason the module does not need to add to these list please return two empyt lists or else an error will get thrown.\
 \
-Finally, the module must be located in it's own directory named the same as the file which has a main function in it. This program is set up to run a function called main in the file named the module. I am bad at describing this and it may sound confusing but look at the MovingAverage module.\
+Finally, the module must be located in it's own directory named the same as the file which has a main function in it. This program is set up to run a function called main in the file named the module. Refer to the example MovingAverage Module.\
 \
 To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works. 
 
@@ -76,7 +82,13 @@ The next deployment should include a few new things. First, I would like to add 
 
 ---
 
-If you have any question or feedback please let me know. You can contact me at sgulinello12@gmail.com. I will try my best to respond promptly. I hope to contribute to this project regularly because there is so much I would like to do with it. I am a full time college student so I can't promise anything. 
+If you have any question or feedback please let me know. You can contact me at sgulinello12@gmail.com. I will try my best to respond promptly. I hope to contribute to this project regularly because there is so much I would like to do with it. I am a full time college student so I can't promise anything.
+
+## Sponsorship
+
+---
+
+If you have a specific requirement or function you would like to see implemented, I am open to a sponsorship. This project has been working at my pace and I have been adding functionality where I see best fit. I have roadmap to continue to grow this project but I am open to reprioritizing things for a small financial contribution. Reach out to me if interested.
 
 ## Legal Things ... I'm assuming
 
