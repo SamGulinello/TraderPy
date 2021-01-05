@@ -15,7 +15,7 @@ cd TraderPy
 ```
 3. Install the application
 ```
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done [here](https://developer.tdameritrade.com/).
     - **This is seperate from your actual TD Ameritrade trading account.** 
