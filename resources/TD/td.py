@@ -155,11 +155,13 @@ class TD():
         
         access_token = decoded_content['access_token']
         headers = {'Authorization': "Bearer {}".format(access_token)}
-
+        
         return(headers)
 
     # function to get the the infromation from the TD account endpoint
     def accountEndpoint(self):
+
+        self.authorizeAccount()
 
         # Define Accounts Headpoints
         endpoint = r"https://api.tdameritrade.com/v1/accounts"
