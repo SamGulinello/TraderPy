@@ -58,6 +58,7 @@ def main():
     while(True):
         if getTime() == "163000":
             
+            api.authorizeAccount()
             stockDict["currentHoldings"] = api.getPositions() 
 
             # Cycle through the modules listed in config file
