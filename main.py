@@ -50,17 +50,12 @@ def main():
     # Instantiate the TD class and authorize the account with TD
     api = TD()
 
-    # Get portfolio current holding from TD API
-    stockDict["currentHoldings"].update(api.positions)
-    print(stockDict)
-
     # This program is designed to run continuously and execute at the close of the markets
     while(True):
         if getTime() == "163000":
+         
+            stockDict["currentHoldings"] = api.getPositions()
             
-            api.authorizeAccount()
-            stockDict["currentHoldings"] = api.getPositions() 
-
             # Cycle through the modules listed in config file
             # Each module with add to the buy and sell list
             for module in config["modules"]:
