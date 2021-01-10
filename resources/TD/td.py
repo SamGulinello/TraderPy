@@ -26,11 +26,11 @@ executable_path = {'executable_path':config["chrome_driver"]}
 class TD():
 
     def __init__(self):
-        #self.headers = self.authorizeAccount()
-        self.headers = {'Authorization': "Bearer {}".format('hin2h3hoi3lklin2')}
-        #self.accountID = self.getAccountID()
-        #self.positions = self.getPositions()
-        #self.buyingPower = self.getBuyingPower()
+        
+        self.authorizeAccount()
+        self.accountID = self.getAccountID()
+        self.positions = self.getPositions()
+        self.buyingPower = self.getBuyingPower()
 
     # Method to authorize the accout before a trade. It will return an authorization code
     def authorizeAccount(self):
@@ -162,8 +162,6 @@ class TD():
 
     # function to get the the infromation from the TD account endpoint
     def accountEndpoint(self):
-
-        # self.authorizeAccount()
 
         # Define Accounts Headpoints
         endpoint = r"https://api.tdameritrade.com/v1/accounts"
