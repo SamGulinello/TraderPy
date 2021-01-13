@@ -7,7 +7,7 @@
 # https://github.com/SamGulinello/TraderPY
 
 # Imports required for the program to work properly
-from datetime import time, datetime
+from datetime import time, datetime, date
 
 # Add this as the root directory on the PATH
 # Sources said this was a terrible solution but
@@ -53,6 +53,8 @@ def main():
     # This program is designed to run continuously and execute at the close of the markets
     while(True):
         if getTime() == "163000":
+
+            print("----------- Current Date: {} ----------".format(date.today()))
          
             stockDict["currentHoldings"] = api.getPositions()
             
