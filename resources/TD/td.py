@@ -38,7 +38,7 @@ class TD():
 
         # create a new instance of the chrome browser
         print("opening browser")
-        browser = Browser('chrome',**executable_path, headless = True)
+        browser = Browser('chrome',**executable_path, headless = False)
         
         # delay time to allow browser to load properly
         time.sleep(2)
