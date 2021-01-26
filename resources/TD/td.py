@@ -70,7 +70,7 @@ class TD():
         print('entering username and password')
         # fill out each element in the form
         browser.find_by_id("username0").first.fill(payload['username'])
-        browser.find_by_id("password").first.fill(payload['password'])
+        browser.find_by_id("password1").first.fill(payload['password'])
         browser.find_by_id("accept").first.click()
         time.sleep(1)
 

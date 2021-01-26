@@ -7,7 +7,7 @@
 # https://github.com/SamGulinello/TraderPY
 
 # Imports required for the program to work properly
-from datetime import time, datetime
+from datetime import time, datetime, date
 
 # Add this as the root directory on the PATH
 # Sources said this was a terrible solution but
@@ -53,6 +53,8 @@ def main():
     # This program is designed to run continuously and execute at the close of the markets
     while(True):
         if getTime() == "163000":
+
+            print("----------- Current Date: {} ----------".format(date.today()))
          
             stockDict["currentHoldings"] = api.getPositions()
             
@@ -67,8 +69,8 @@ def main():
                 stockDict['buyList'].extend(buyList)
                 stockDict['sellList'].extend(sellList)
 
-            headers = api.authorizeAccount()
             accountID = api.accountID
+            headers = api.headers
 
             # Sell everything in sellList
             print("selling items on sellList")
@@ -93,7 +95,7 @@ def main():
                     
                     # function needs number of shares, TD Accound ID, and Headers gathered from authorization
                     i.buyStock(1,accountID,headers)
-                    stockDict['currentHoldings'].append({i.ticker:1})
+                    stockDict['currentHoldings'].update({i.ticker:1})
                     
                     buyingPower = buyingPower - sharePrice
                     time.sleep(2)

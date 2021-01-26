@@ -6,13 +6,15 @@
 # For More Information About This Project Go to 
 # https://github.com/SamGulinello/TraderPY
 
-import time
-import operator
+# import time
+# import operator
 from resources.indices import index
 from resources.Stock.stock import Stock
-from resources.TD.td import TD as api
+from resources.TD.td import TD
 from config.config import config
 from main import stockDict
+
+api = TD()
 
 def main():
     # Get the config information and save it as a dictionary
@@ -22,7 +24,7 @@ def main():
     # Get the index from the config
     stockObjects = index[ThisConfig['index']]
     buyingPowerScale = ThisConfig['buying_power_allocation']/100
-    buyingPower = api().getBuyingPower() * (buyingPowerScale)
+    buyingPower = api.getBuyingPower() * (buyingPowerScale)
 
     # Create a reference attribute for each Stock object
     # This should only be done the first time through
@@ -77,7 +79,9 @@ def main():
     for stock in buyList:
         totalPrice = totalPrice + stock.getCurrentPrice()
         if totalPrice > buyingPower:
-            buyList.pop(stock)
+            buyList.remove(stock)
+
+    print("BUY LIST: " + str(buyList))
 
     return buyList, sellList
 
