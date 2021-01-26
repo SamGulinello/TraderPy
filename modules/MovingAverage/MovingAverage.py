@@ -81,7 +81,7 @@ def main():
         if totalPrice > buyingPower:
             buyList.remove(stock)
 
-    print("BUY LIST: " + buyList)
+    print("BUY LIST: " + str(buyList))
 
     return buyList, sellList
 
