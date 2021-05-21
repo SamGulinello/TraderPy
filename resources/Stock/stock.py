@@ -78,7 +78,7 @@ class Stock():
             
         averagePrice = averagePrice / len(data)
         
-        print("Ten Day Average: " + str(averagePrice))
+        # print("Ten Day Average: " + str(averagePrice))
         return averagePrice
 
 
@@ -114,7 +114,7 @@ class Stock():
 
         averagePrice = averagePrice / len(data)
 
-        print("Thirty day average: " + str(averagePrice))
+        # print("Thirty day average: " + str(averagePrice))
         return averagePrice
 
     def buyStock(self,quantity,account_id,headers):

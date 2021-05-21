@@ -14,7 +14,19 @@ from resources.TD.td import TD
 from config.config import config
 from main import stockDict
 
+import sys
+
 api = TD()
+
+def printProgressBar(i,maximum, ticker):
+
+    n_bar = 100
+    j = i/maximum
+
+    sys.stdout.write('\r')
+    sys.stdout.write(f"[{'=' * int(n_bar * j):{n_bar}s}] {int(100 * j)}%")
+    sys.stdout.write('\r')
+    sys.stdout.flush()
 
 def main():
     # Get the config information and save it as a dictionary
@@ -37,12 +49,14 @@ def main():
     # These will be populated and returned to the main module
     buyList, sellList = [],[]
 
+    count = 0
+    print("UPDATING MOVING AVERAGES")
     for i in stockObjects:
         # This will be used to compare to new comparison of 10 vs 30 Day
         reference = i.reference
 
-        print('evaluating ' + str(i.ticker) + ' ...')
-
+        # print('evaluating ' + str(i.ticker) + ' ...')
+        
         # Get new 10 and 30 day averages
         try:
             lowerBound = i.tenDayAverage()
@@ -70,6 +84,9 @@ def main():
                 sellList.append(i)
             else:
                 pass
+        
+        printProgressBar(count, len(stockObjects), i.ticker)
+        count += 1;
             
     #sort buyList in ascending order    
     buyList.sort(key=lambda Stock: Stock.getCurrentPrice())
@@ -81,7 +98,12 @@ def main():
         if totalPrice > buyingPower:
             buyList.remove(stock)
 
-    print("BUY LIST: " + str(buyList))
+    # Prep stocks to be printed to consol
+    printList = []
+    for stock in buyList:
+        printList.append(stock.ticker)
+
+    print("BUY LIST: " + str(printList))
 
     return buyList, sellList
 

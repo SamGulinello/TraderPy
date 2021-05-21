@@ -34,17 +34,17 @@ class TD():
 
     # Method to authorize the accout before a trade. It will return an authorization code
     def authorizeAccount(self):
-        print('authorizing account')
+        print('AUTHORIZING ACCOUNT')
 
         # create a new instance of the chrome browser
-        print("opening browser")
+        print("OPENING BROWSER")
         browser = Browser('chrome',**executable_path, headless = True)
         
         # delay time to allow browser to load properly
         time.sleep(2)
 
         # components of the URL
-        print("building auth url")
+        print("BUILDING AUTH URL")
         method = 'GET'
         url = 'https://auth.tdameritrade.com/auth?'
         client_code = client_id + '@AMER.OAUTHAP'
@@ -58,7 +58,7 @@ class TD():
         built_url = requests.Request(method, url, params = paylaod).prepare()
         built_url = built_url.url
 
-        print('visiting url')
+        print('VISITING URL')
         # go to our url
         browser.visit(built_url)
         
@@ -67,7 +67,7 @@ class TD():
         # define payload
         payload = {'username': username, 'password':password}
 
-        print('entering username and password')
+        print('ENTERING USERNAME AND PASSWORD')
         # fill out each element in the form
         browser.find_by_id("username0").first.fill(payload['username'])
         browser.find_by_id("password1").first.fill(payload['password'])
@@ -80,8 +80,7 @@ class TD():
         # Get the Answer Box
         browser.find_by_value("Answer a security question").first.click()
 
-        print('answering security question')
-        
+        print('ANSWERING SECURITY QUESTION')
         # Answer the Security Questions.
         question_one = "What is your paternal grandfather's first name?"
         question_two = "In what city were you born? (Enter full name of city only.)"
@@ -127,7 +126,7 @@ class TD():
         time.sleep(2)
         new_url = browser.url
 
-        print('grabbing auth code')
+        print('GRABBING AUTH CODE')
         # grab the part we need, and decode it.
         parse_url = urllib.parse.unquote(new_url.split('code=')[1])
         
@@ -150,7 +149,7 @@ class TD():
         # post the data to get the token
         authReply = requests.post(r'https://api.tdameritrade.com/v1/oauth2/token', headers = headers, data=payload)
 
-        print('sending for headers')
+        print('SENDING FOR HEADERS')
         # convert it to a dictionary and grab access token
         decoded_content = authReply.json()
         
@@ -184,7 +183,7 @@ class TD():
     # Method to return a list of the current positions held along with the quantity of those positions
     def getPositions(self):
 
-        print("grabing current positions")
+        print("GRABBING CURRENT POSITIONS")
 
         data = self.accountEndpoint()
 
@@ -207,7 +206,7 @@ class TD():
     # Method to return the account id
     def getAccountID(self):
 
-        print("grabbing account ID")
+        print("GRABBING ACCOUNT ID")
 
         data = self.accountEndpoint()
         
@@ -219,7 +218,7 @@ class TD():
     # Method to return the buying power
     def getBuyingPower(self):
 
-        print("grabbing buying power")
+        print("GRABBING BUYING POWER")
         
         data = self.accountEndpoint()
 
@@ -229,7 +228,7 @@ class TD():
         return (buyingPower)
 
     def getAccountValue(self):
-        print("grabbing account balance")
+        print("GRABBING ACCOUNT VALUE")
 
         data = self.accountEndpoint()
 
@@ -241,7 +240,7 @@ class TD():
         return(balance)
 
     def getPositionData(self, ticker=""):
-        print("grabbing position data")
+        print("GRABBING POSITON DATA")
 
         # Define Accounts Headpoints
         endpoint = r"https://api.tdameritrade.com/v1/accounts"
