@@ -14,13 +14,6 @@ This class is what interacts with the TD Ameritrade API. It's main tool is the '
 ## Authorize Your Account
    This method is **NECESSARY FOR OTHER REQUESTS TO BE MADE**. It should be executed at the beginning of the module. It authorizes the app with TD Ameritrade and returns a unique value to verify other requests. The value only lasts for 30 minutes so keep that in mind. There are no inputs to this function.
 
-   Example 
-   <pre>
-   token = td.authorizeAccount()
-
-   #Output
-   {'Authorization': Bearer <i>Access Token</i>}
-   </pre>
 
 ## Get Account Data
    This method will return a json dictionary full of account details. It requires no input values but be sure to have authorized the account within 30 minutes of calling this function.
@@ -97,7 +90,7 @@ Quick Warning: *Due to frequency of change to the data used in this class, these
 
 # Example Script
 
-Below is an example of this class authorizing a TD account and getting the long quantitiy of a position if it held in the portfolio. Hopefully this will give you a better understanding on how to use this script.
+Below is an example of this class authorizing a TD account and getting the long quantitiy of a position if it held in the portfolio. Hopefully this will give you a better understanding on how to use this class.
 
 ```
 from resources.TD.td import TD

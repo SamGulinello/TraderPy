@@ -89,7 +89,7 @@ def main():
             for i in buyList:
                 sharePrice = i.getCurrentPrice() 
                 
-                # ensure prgram never attempst to buy more than what cna be afforded
+                # ensure program never attempts to buy more than what can be afforded
                 if sharePrice < buyingPower:
                     print("buying " + i.ticker)
                     

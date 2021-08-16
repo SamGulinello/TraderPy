@@ -86,7 +86,7 @@ def main():
                 pass
         
         printProgressBar(count, len(stockObjects), i.ticker)
-        count += 1;
+        count += 1
             
     #sort buyList in ascending order    
     buyList.sort(key=lambda Stock: Stock.getCurrentPrice())
