@@ -22,6 +22,7 @@ from config.config import config
 import time
 import importlib
 import operator
+import threading
 
 # Create Dictionary to be Used as Reference Throughout Program
 stockDict = {
@@ -37,7 +38,7 @@ def getTime():
     
     return currentTime
 
-def main():
+def TraderPy():
 
     # First Check to Ensure Program is Working Properly
     print("running")
@@ -119,6 +120,3 @@ def main():
 
         else:
             pass
-    
-if __name__ == "__main__":
-    main()
