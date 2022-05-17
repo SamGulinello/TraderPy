@@ -26,3 +26,7 @@ a:link {
 article {
     line-height: 1.8;
 }
+.command-snippet {
+    background-color: #f6f8fa;
+    padding: 10px;
+}
