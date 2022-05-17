@@ -20,8 +20,14 @@ body {
   overflow-x: hidden;
   padding-top: 20px;
 }
+.navItems a:link {
+     display: block;
+     color: black;
+     padding: 16px;
+     text-decoration: none;
+}
 .main {
-    margin:0 200px 0 200px;
+    margin:0 20rem 0 20rem;
 }
 article {
     line-height: 1.8;
