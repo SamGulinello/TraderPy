@@ -21,7 +21,7 @@ body {
   padding-top: 20px;
 }
 .main {
-    margin-left:170px;
+    margin:0 200px 0 200px;
 }
 article {
     line-height: 1.8;
@@ -29,6 +29,8 @@ article {
 .command-snippet {
     background-color: #f6f8fa;
     padding: 10px;
+    width:fit-content;
+    height:fit-content;
 }
 .white-circle {
     list-style-type: circle;
