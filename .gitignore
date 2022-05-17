@@ -1,5 +1,5 @@
 # DO NOT REMOVE ANY FILES FROM THIS DOCUMENT
 config.py
-chromedriver.exe
+chromedriver
 test.py
 *.pyc
