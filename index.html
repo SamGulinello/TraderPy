@@ -16,11 +16,11 @@
           </div> 
   <div class="sidenav">side</div>
 <div class="main">
-  <article>
+  <article class="traderpy">
   <h2>TraderPy</h2>
   <p>TraderPy is an open-source modular algorithmic trading platform. Through the use of interchangable modules it can take control of your TD Ameritrade portfolio. This Program uses the TD Ameritrade api to get real time market data and control a TD Ameritrade trading account.</p>
   </article>
-  <article>
+  <article class="installation">
   <h2>Installation</h2>
   <span >
    1. In the command line clone this repository</br>
@@ -30,12 +30,35 @@
    3. Install the application</br>
 
    4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done here.</br> 
+        <ul>
+          <li>This is seperate from your actual TD Ameritrade trading account.</li>
+          <li>To set up a Trading account, if you don't already have one, go to their official website</li>
+        </ul>
 
    5. Once an account has been created, you will need to create an application here to be approved for the api. </br>
+        <ul>
+          <li>Fill out the required fields in the Add App screen. Select Create App.</li>
+          <li>Field details are as follows: 
+            <li>App Name: A unique application name.</li>
+            <li>Callback URL: The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
+            <li>What is the purpose of your application?: Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
+            <li>The new application will be displayed in My Apps once it is successfully registered</li>
+            <li>For more information on this process, they provide good guides.</li>
+          </li>
+        </ul>
 
    6. This project uses a python library called selenium. It is used to for web scraping and is essential for some of the methods to work. This library requires a chrome driver to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an folder waiting for you to install the chrome driver into it. Replace the sample driver with your newly installed version.</br>
   
    7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (indicated in all caps text) </br>
+        <ul>
+          <li>Required information is as follows: </li>
+          <li>client_id: This is the Consumer Key of the successfully registered app on your TD Ameritrade developer account</li>
+          <li>account_number: This can be found in the My Profile page on TD Ameritrades Trading Website</li>
+          <li>username: This is your TD Ameritrade Trading Account Username</li>
+          <li>password: This is your TD Ameritrade Trading Account Password</li>
+          <li>chrome_driver: This is the absolute path to the chrome driver executable</li>
+          <li>security_questions: The answers would have been determined when setting up the TD Ameritrade account.</li>
+        </ul>
 
    8. To run this project open up your command line and go to the root directory of this project. Once in the root directory just type</br>
 
