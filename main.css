@@ -7,7 +7,7 @@ body {
     padding: 1rem 2rem 1rem 2rem;
     border:1px solid black;
 }
-a:link {
+.header a:link {
     text-decoration: none;
 }
 .sidenav {
@@ -29,4 +29,10 @@ article {
 .command-snippet {
     background-color: #f6f8fa;
     padding: 10px;
+}
+.white-circle {
+    list-style-type: circle;
+}
+.list-indent {
+    margin-left: 40px;
 }
