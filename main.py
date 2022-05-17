@@ -8,6 +8,7 @@
 
 # Imports required for the program to work properly
 from datetime import time, datetime, date
+from http.server import executable
 
 # Add this as the root directory on the PATH
 # Sources said this was a terrible solution but
@@ -23,6 +24,9 @@ import time
 import importlib
 import operator
 import threading
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 # Create Dictionary to be Used as Reference Throughout Program
 stockDict = {
@@ -47,6 +51,13 @@ def TraderPy():
     for i in index:
         for n, j in enumerate(index[i]):
             index[i][n] = Stock(index[i][n])
+
+    # Start UI
+    executable_path = {'executable_path':config["chrome_driver"]}
+    chrome_options = Options()
+    chrome_options.add_argument("--kiosk")
+    driver = webdriver.Chrome(chrome_options=chrome_options, **executable_path)
+    driver.get('http://127.0.0.1:5000/')
 
     # Instantiate the TD class and authorize the account with TD
     api = TD()
