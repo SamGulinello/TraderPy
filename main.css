@@ -2,4 +2,16 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2rem 0 2rem;
+    border:1px solid black;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 4rem;
+  left: 0;
+border: 1px black solid;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
