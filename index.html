@@ -21,9 +21,10 @@
     </ul>
   </div>
 <div class="main">
-  <article class="traderpy">
-  <h2>TraderPy</h2>
-  <p>TraderPy is an open-source modular algorithmic trading platform. Through the use of interchangable modules it can take control of your TD Ameritrade portfolio. This Program uses the TD Ameritrade api to get real time market data and control a TD Ameritrade trading account.</p>
+  <article class="traderPy">
+    <h2> TraderPy</h2>
+    <p>TraderPy is an open-source modular algorithmic trading platform. Through the use of interchangable modules it can take control of your TD Ameritrade portfolio.
+       This Program uses the TD Ameritrade api to get real time market data and control a TD Ameritrade trading account.</p>
   </article>
   <article class="installation">
   <h2>Installation</h2>
@@ -68,6 +69,57 @@
    8. To run this project open up your command line and go to the root directory of this project. Once in the root directory just type</br>
     <div class="command-snippet">python3 main.py</div>     
   </span>
+  </article>
+  <article class="Contribute">
+    <h2>Contribute</h2>
+    <p>This project is still very early in development and I am currently seeking contributors. 
+      If you wish to contribute please fork the repository and make any changes to the code. Afterwards submit a pull request and I will review it. If you believe something is missing or done incorrectly feel free to change it and explain why. This project has always been a learning excersise for me and I continue to keep it as that.</p>
+  </article>
+  <article class="Creating a module">
+    <h2>Creating a Module</h2>
+    <p>
+      To create a module you will first want to import the config file. The main function of this program sets the root directory to make an import of the config file look like this.</br>
+    <div class="command-snippet">from config.config import config</div>
+      In the config file you need to include the name of the module and set it the the key "module". An example of a module specific config looks like this. 
+      It is used for a module that compares the 10 and 30 moving averages of the S&P 500 and trades stocks accordingly.<br>
+      <div class="command-snippet">{
+        "module" : "MovingAverage",
+        "buying_power_allocation": 30, # Percentage of available buying power
+        "index" : "S&P"
+        }
+      </div>
+      Your module will also need to include which index will be used for any analysis. The index options are located in the resource directory. A user can create their own custom index they will just need to specify it in the config.</br>
+
+      The main function is designed to run a module and expects it to return both a buy list and sell list. These will be added to a master list which will then be used by the main function to know what to buy and sell at the end of the day. If for some reason the module does not need to add to these list please return two empty lists or else an error will get thrown.</br>
+      
+      Finally, the module must be located in it's own directory named the same as the file which has a main function in it. This program is set up to run a function called main in the file named the module. Refer to the example MovingAverage Module.
+      
+      To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works.
+   
+   
+   
+   
+    </p>
+  </article>
+  <article class=" What's Next">
+    <h2>What's Next</h2>
+    <p>The next deployment should include a few new things. First, I would like to add more methods to both the TD and Stock classes. The TD api has a lot to offer but the request system can be confusing at times. 
+      I would like to have these classes make getting data from TD Ameritrade as easy as possible. Next, I plan on documenting both those classes. There are already a number of cool things they can do but there is no way of knowing it without looking at the code. Documentation will either come in the form of another README or I have toyed with the idea of making a documentation website to accompany this project (will probably start with a README). Finally, I hope to develop a 'trailing stop' module. This will ensure the program doesn't hold a stock until the bitter end and will instead lock in a loss percentage value that will change as the stock hopefully goes up in value.</p>
+  </article>
+  <article class="Support">
+    <h2>Support</h2>
+    <p>If you have any question or feedback please let me know. You can contact me at sgulinello12@gmail.com. 
+      I will try my best to respond promptly. I hope to contribute to this project regularly because there is so much I would like to do with it. I am a full time college student so I can't promise anything.</p>
+  </article>
+  <article class="Sponsorship">
+    <h2>Sponsorship</h2>
+    <p>If you have a specific requirement or function you would like to see implemented,
+       I am open to a sponsorship. This project has been working at my pace and I have been adding functionality where I see best fit. I have roadmap to continue to grow this project but I am open to reprioritizing things for a small financial contribution. Reach out to me if interested.</p>
+  </article>
+  <article class="Legal Things">
+    <h2>Legal Things</h2>
+    <p>I just want it on record that I am not personally responsible for the funds in your trading account. What you do with your money is completely seperate from the programs I write. This project is honestly just an exercise in a lot of programming practices I wanted to learn more about. This should in no way be your primary decision maker with large quantities of your financials. I also assume bugs will occur as they have before when developing this. 
+      I try to program in safe guards though that will protect your funds. Also please be aware of any personal information you use with this. When pushing something to githup please add your specific config file to a .gitignore. That file with contain sensitive information which I am assuming you don't want on the internet. Thank you and enjoy :)</p>
   </article>
 </div>
 </body>
