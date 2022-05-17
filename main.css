@@ -7,6 +7,9 @@ body {
     padding: 1rem 2rem 1rem 2rem;
     border:1px solid black;
 }
+a:link {
+    text-decoration: none;
+}
 .sidenav {
   height: 100%;
   width: 160px;
@@ -17,4 +20,7 @@ body {
   border: 1px black solid;
   overflow-x: hidden;
   padding-top: 20px;
+}
+.main {
+    margin-left:170px;
 }
