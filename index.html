@@ -29,25 +29,25 @@
     <div class="command-snippet">cd TraderPy</div>
    3. Install the application</br>
     <div class="command-snippet">pip3 install -r requirements.txt</div>
-   4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done here.</br> 
+   4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done <a href ="https://developer.tdameritrade.com/">here.</a></br> 
         <ul>
           <li>This is seperate from your actual TD Ameritrade trading account.</li>
-          <li>To set up a Trading account, if you don't already have one, go to their official website</li>
+          <li>To set up a Trading account, if you don't already have one, go to their <a href = "https://www.tdameritrade.com/">official website</a></li>
         </ul>
 
-   5. Once an account has been created, you will need to create an application here to be approved for the api. </br>
+   5. Once an account has been created, you will need to create an application <a href =" https://developer.tdameritrade.com/user/me/apps/add">here</a> to be approved for the api. </br>
         <ul>
           <li>Fill out the required fields in the Add App screen. Select Create App.</li>
           <li>Field details are as follows: 
             <li>App Name: A unique application name.</li>
             <li>Callback URL: The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
             <li>What is the purpose of your application?: Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
-            <li>The new application will be displayed in My Apps once it is successfully registered</li>
-            <li>For more information on this process, they provide good guides.</li>
+            <li>The new application will be displayed in <a href= "https://developer.tdameritrade.com/user/me/apps">My Apps</a> once it is successfully registered</li>
+            <li>For more information on this process, they provide good <a href = "https://developer.tdameritrade.com/guides">guides.</a></li>
           </li>
         </ul>
 
-   6. This project uses a python library called selenium. It is used to for web scraping and is essential for some of the methods to work. This library requires a chrome driver to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an folder waiting for you to install the chrome driver into it. Replace the sample driver with your newly installed version.</br>
+   6. This project uses a python library called selenium. It is used to for web scraping and is essential for some of the methods to work. This library requires a <a href= "https://chromedriver.chromium.org/downloads">chrome driver</a> to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an folder waiting for you to install the chrome driver into it. Replace the sample driver with your newly installed version.</br>
   
    7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (indicated in all caps text) </br>
         <ul>
