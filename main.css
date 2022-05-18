@@ -1,6 +1,10 @@
 body {
     margin:0;
 }
+::selection {
+    background-color:#04AA6D;
+    color:white;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -16,15 +20,30 @@ body {
   z-index: 1;
   top: 3.3rem;
   left: 0;
-  border: 1px black solid;
+  border:1px solid black;
   overflow-x: hidden;
-  padding-top: 20px;
+  text-align: center;
 }
-.sidenav a:link {
+.navItems  {
      display: block;
      color: black;
      text-decoration: none;
+     width:100%;
+     margin:0rem;
+     padding:5px;
 }
+.sidenav ul {
+    padding-left:0;
+}
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.sidenav a:hover:not(.active ) {
+    background-color: rgb(216, 241, 232);
+    color: black;
+  }
+
 .main {
     margin:0 20rem 4rem 20rem;
 }
