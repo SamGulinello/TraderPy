@@ -33,21 +33,54 @@
 
     <h3>Get Account Data</h3>
         <p>This method will return a json dictionary full of account details. It requires no input values but be sure to have authorized the account within 30 minutes of calling this function.</p>
+          <div class="command-snippet">
+            account = td.accountEndpoint()
+          </div>
 
     <h3>Get Current Positions</h3>
         <p>This method will return a dictionary of the stocks held in your portfolio paired with the quantity. The first position listed will be named MMDA1. This is a name TD Ameritrade gives to the account they use to invest your free money. Feel free to ignore it. This method returns a dictionary.</p>
+          <div class="command-snippet">
+            positions = td.getPositions()
+
+            <p>#Sample Output</br>
+            {'MMDA1': 600.00, 'BABA' : 2, 'TSLA' : 5}</p>
+
+          </div>
 
     <h3>Get Account ID</h3>
         <p>The Account ID is commonly used in other methods within the class. TD Ameritrade uses it as a verifier. This is seperate from the client_id specified in config. Returns and int.</p>
+          <div class="command-snippet">
+            account_id = td.getAccountID()
+
+           <p> #Sample Output</br>
+            12345678</p>
+
+          </div>
 
     <h3>Get Current Buying Power</h3>
         <p>The buying power is a measure of spendable cash on new stocks. This is an essential number to know when going to buy positions. Returns and float</p>
+          <div class="command-snippet">
+            buying_power = td.getBuyingPower()
+
+            <p>#Sample Output</br>
+            123.00</p>
+
+          </div>
 
     <h3>Get Current Account Value</h3>
        <p>This number is the liquidation value of your account. It is the sum of the values of your positions and your current buying power. Returns a float</p>
-    
+          <div class="command-snippet">
+            account_value = td.getAccountValue()
+
+            <p># Sample Output</br>
+            1000.00</p>
+          </div>
+
      <h3>Get Data on a Specific Position Held in Your Portfolio</h3>
         <p>This method will return a dictionary of values that pertain to a specific position in your portfolio. It takes an optional argument for the ticker symbol you like to see information on. If no ticker symbol is given, it will return the information on every position of your portfolio</p>
+        <div class="command-snippet">
+          data = td.getPositionValue(ticker='TSLA')
+        </div>
 
     </article>
     <article class="tdAttributes">
@@ -55,6 +88,21 @@
     </article>
     <article class="tdExamplescript">
       <h2>Example Script</h2>
+        <p>Below is an example of this class authorizing a TD account and getting the long quantitiy of a position if it held in the portfolio. Hopefully this will give you a better understanding on how to use this class.</p>
+          <div class="command-snippet">
+            
+            from resources.TD.td import TD
+
+            <p>api = TD()</br>
+            ticker = 'FB'</br>
+            currentPositions = api.getPositions() </p>
+            
+            if ticker in currentPositions:</br>
+               print(api.getPositionValue(ticker = ticker))</br>
+            else:</br>
+               print(ticker + "is not in your current positions")
+          </div>
+
     </article>
 </div>
 </body>
