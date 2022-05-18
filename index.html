@@ -78,27 +78,25 @@
   <article class="Creating a module">
     <h2>Creating a Module</h2>
     <p>
-      To create a module you will first want to import the config file. The main function of this program sets the root directory to make an import of the config file look like this.</br>
+      To create a module you will first want to import the config file. The main function of this program sets the root directory to make an import of the config file look like this.
     <div class="command-snippet">from config.config import config</div>
+    <p>
       In the config file you need to include the name of the module and set it the the key "module". An example of a module specific config looks like this. 
-      It is used for a module that compares the 10 and 30 moving averages of the S&P 500 and trades stocks accordingly.<br>
-      <div class="command-snippet">{
-        "module" : "MovingAverage",
-        "buying_power_allocation": 30, # Percentage of available buying power
-        "index" : "S&P"
+      It is used for a module that compares the 10 and 30 moving averages of the S&P 500 and trades stocks accordingly.</p>
+      <div class="command-snippet">{ </br>
+        "module" : "MovingAverage",</br>
+        "buying_power_allocation": 30, # Percentage of available buying power</br>
+        "index" : "S&P"</br>
         }
       </div>
-      Your module will also need to include which index will be used for any analysis. The index options are located in the resource directory. A user can create their own custom index they will just need to specify it in the config.</br>
+      Your module will also need to include which index will be used for any analysis. The index options are located in the resource directory. A user can create their own custom index they will just need to specify it in the config.
 
-      The main function is designed to run a module and expects it to return both a buy list and sell list. These will be added to a master list which will then be used by the main function to know what to buy and sell at the end of the day. If for some reason the module does not need to add to these list please return two empty lists or else an error will get thrown.</br>
+      <p>The main function is designed to run a module and expects it to return both a buy list and sell list. These will be added to a master list which will then be used by the main function to know what to buy and sell at the end of the day. If for some reason the module does not need to add to these list please return two empty lists or else an error will get thrown.</p>
       
       Finally, the module must be located in it's own directory named the same as the file which has a main function in it. This program is set up to run a function called main in the file named the module. Refer to the example MovingAverage Module.
       
-      To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works.
-   
-   
-   
-   
+      <p>To submit a module for review please fork this repository and submit a pull request when done. I will review the code and make sure it works.</p>
+
     </p>
   </article>
   <article class=" What's Next">
