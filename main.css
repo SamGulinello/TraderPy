@@ -66,3 +66,26 @@ article {
 .list-indent {
     margin-left: 40px;
 }
+
+@media only screen and (max-width: 990px) {
+    .main {
+        margin:0 10rem 4rem 15rem;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top:80%
+          }
+    .main {
+        margin:2rem
+    }
+}
+@media only screen and (max-width: 320px) {
+    .main {
+        margin:2rem;
+    }
+}
