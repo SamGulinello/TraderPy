@@ -29,12 +29,26 @@
     <article class="tdMethods">
     <h2>Methods</h2>
     <h3>Authorize Your Account</h3>
+        <p>This method is NECESSARY FOR OTHER REQUESTS TO BE MADE. It should be executed at the beginning of the module. It authorizes the app with TD Ameritrade and returns a unique value to verify other requests. The value only lasts for 30 minutes so keep that in mind. There are no inputs to this function.</p>
+
     <h3>Get Account Data</h3>
+        <p>This method will return a json dictionary full of account details. It requires no input values but be sure to have authorized the account within 30 minutes of calling this function.</p>
+
     <h3>Get Current Positions</h3>
+        <p>This method will return a dictionary of the stocks held in your portfolio paired with the quantity. The first position listed will be named MMDA1. This is a name TD Ameritrade gives to the account they use to invest your free money. Feel free to ignore it. This method returns a dictionary.</p>
+
     <h3>Get Account ID</h3>
+        <p>The Account ID is commonly used in other methods within the class. TD Ameritrade uses it as a verifier. This is seperate from the client_id specified in config. Returns and int.</p>
+
     <h3>Get Current Buying Power</h3>
+        <p>The buying power is a measure of spendable cash on new stocks. This is an essential number to know when going to buy positions. Returns and float</p>
+
     <h3>Get Current Account Value</h3>
-    <h3>Get Data on a Specific Position Held in Your Portfolio</h3>
+       <p>This number is the liquidation value of your account. It is the sum of the values of your positions and your current buying power. Returns a float</p>
+    
+     <h3>Get Data on a Specific Position Held in Your Portfolio</h3>
+        <p>This method will return a dictionary of values that pertain to a specific position in your portfolio. It takes an optional argument for the ticker symbol you like to see information on. If no ticker symbol is given, it will return the information on every position of your portfolio</p>
+
     </article>
     <article class="tdAttributes">
       <h2>Attributes</h2>
