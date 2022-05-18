@@ -15,6 +15,9 @@ body {
 .header a:link {
     text-decoration: none;
 }
+.header-left, .header-middle, .header-right {
+    color:black;
+}
 /*side navigation bar */
 .sidenav {
   width: 160px;
@@ -37,7 +40,7 @@ body {
 .sidenav ul {
     padding-left:0;
 }
-/*green color on hover*/
+/*green color on hover and selection*/
 .active {
     background-color: #04AA6D;
     color: white;
