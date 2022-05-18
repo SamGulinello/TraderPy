@@ -15,11 +15,11 @@ body {
 .header a:link {
     text-decoration: none;
 }
-.header-left, .header-middle, .header-right {
+.headerLeft, .headerMiddle, .headerRight {
     color:black;
 }
 /*side navigation bar */
-.sidenav {
+.sideNav {
   width: 160px;
   position: fixed;
   z-index: 1;
@@ -37,7 +37,7 @@ body {
      margin:0rem;
      padding:5px;
 }
-.sidenav ul {
+.sideNav ul {
     padding-left:0;
 }
 /*green color on hover and selection*/
@@ -45,7 +45,7 @@ body {
     background-color: #04AA6D;
     color: white;
 }
-.sidenav a:hover:not(.active ) {
+.sideNav a:hover:not(.active ) {
     background-color: rgb(216, 241, 232);
     color: black;
   }
@@ -80,7 +80,7 @@ article {
 }
 
 @media only screen and (max-width: 760px) {
-    .sidenav {
+    .sideNav {
         width: 100%;
         height: auto;
         position: relative;
