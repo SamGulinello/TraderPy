@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main.css">
+    <title>TraderPy</title>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="headerLeft">Home</a>
+        <a href="../index.html" class="headerMiddle">TraderPy</a>
+        <a class="headerRight" href="../index.html#contact">Contact</a>
+      </div> 
+<div class="sideNav">
+  <ul>
+    <a href="" class="navItems active">Stock Class</a>
+    <a href="./TD_Class.html" class="navItems">TD Class</a>
+</ul>
+
+</div>
+<div class="main">
+  <article class="stockAmeritrade">
+    <h2>TD Ameritrade API</h2>
+    <p>This class is what interacts with the TD Ameritrade API to retrieve information about specific assets. It's main tool is the 'Requests' library since the API is designed to retrieve HTTP requests and return the data in the form of JSON. Below are all the methods and attributes that can be used with this class. Each ticker symbol is converted to a Stock object at the beginnig of the program being run. If you feel like some functionality is missing, please reach out. This class and documentation will be added too continuously as development continues.</p>
+  </article>
+  <article class="stockMethods">
+    <h2>Methods</h2>
+    <h3>Get Current Price</h3>
+         <p>This method is pretty simple and requires no input. It takes the ticker attribute of the Stock object and returns the current price of a single share of the stock.</p>
+        <div class="snippet">
+        ticker = "FB"</br>
+        ticker = Stock(ticker)</br>
+
+        <p>ticker.getCurrentPrice()</p>
+    
+         #Output
+         grabbing current price of FB</br>
+          Current Price: 373.22</b>
+    </div>
+    <h3>Get Ten Day Average of Stock</h3>
+         <p>This method requires no input and will return a Float value equal to the 10 day average of a specific stock. It is intended to track the moving average of a specific asset.</p>
+         <div class="snippet">
+          ticker = "FB"</br>
+         ticker = Stock(ticker)</br>
+      
+         <p>print(ticker.tenDayAverage())</p>
+      
+         #Output</br>
+         350.92879236507594
+      </div>
+    
+    <h3>Get Third Day Average of Stock</h3>
+        <p>This method is identical to the ten day average method except it calculates the average stock price of the past thirty days.</p>
+        <div class="snippet">
+           ticker = "FB"</br>
+          ticker = Stock(ticker)</br>
+      
+          <p>print(ticker.thirtyDayAverage())</p>
+      
+           #Output</br>
+           351.46799999999996
+     </div>
+    
+    <h3>Buy and Sell a Specific Stock</h3>
+       <p>These are two sepreate methods but are nearly identical besides one selling a stock and one buying it. These methods require three inputs. First is the quantity of stocks to be bought/sold in the transactin. The method also requires the headers derived from authorizing the TD account, and the account ID. These values can be derived from the <a href="./TD_Class.html"> TD Class.</a></p>
+        <div class="snippet">
+             ticker = "FB"</br>
+            ticker = Stock(ticker)</br>
+           <p>ticker.buyStock(2,account_ID, headers)</p>
+     </div>
+
+  </article>
+  <article class="stockAttributes">
+    <h2>Attributes</h2>
+    <p>
+     1. Stock.ticker
+  </p>
+  </article>
+  <article class="stockExample"> 
+    <h2>Example</h2>
+    <div class="snippet">
+      ticker = "FB"</br>
+      stock_object = Stock(ticker)<br>
+
+      <p>tenDay = stock_oject.tenDayAverage()</br>
+      thirtyDay = stock_oject.thirtyDayAverage()</p>
+
+      if tenDay >= thirtyDay:</br>
+      <span class="indent">stock_object.buyStock</span></br>
+        else:</br>
+       <span class="indent">pass</span>
+    </div>
+  </article>
+</div>
+</body>
+</html>
