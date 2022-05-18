@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="header">
-      <a href="../index.html" class="header-left">Home</a>
-      <a href="../index.html" class="header-middle">TraderPy</a>
-              <div class="header-right">
+      <a href="../index.html" class="headerLeft">Home</a>
+      <a href="../index.html" class="headerMiddle">TraderPy</a>
+              <div class="headerRight">
           <a href="">Contact</a>
               </div>
    </div> 
@@ -36,7 +36,7 @@
         <p>This method will return a json dictionary full of account details. It requires no input values but be sure to have authorized the account within 30 minutes of calling this function.</p>
           <p>Example</p>  
 
-          <div class="command-snippet">
+          <div class="snippet">
             account = td.accountEndpoint()
           </div>
             <p>See <a href="https://developer.tdameritrade.com/account-access/apis/get/accounts-0">TD Documentation</a> for sample output.(Too long to include here)</p>
@@ -45,7 +45,7 @@
         <p>This method will return a dictionary of the stocks held in your portfolio paired with the quantity. The first position listed will be named MMDA1. This is a name TD Ameritrade gives to the account they use to invest your free money. Feel free to ignore it. This method returns a dictionary.</p>
         <p>Example</p>   
 
-          <div class="command-snippet">
+          <div class="snippet">
             positions = td.getPositions()
 
             <p>#Sample Output</br>
@@ -57,7 +57,7 @@
         <p>The Account ID is commonly used in other methods within the class. TD Ameritrade uses it as a verifier. This is seperate from the client_id specified in config. Returns and int.</p>
         <p>Example</p>         
 
-          <div class="command-snippet">
+          <div class="snippet">
             account_id = td.getAccountID()
 
            <p> #Sample Output</br>
@@ -69,7 +69,7 @@
         <p>The buying power is a measure of spendable cash on new stocks. This is an essential number to know when going to buy positions. Returns and float</p>
         <p>Example</p>         
 
-          <div class="command-snippet">
+          <div class="snippet">
             buying_power = td.getBuyingPower()
 
             <p>#Sample Output</br>
@@ -81,7 +81,7 @@
        <p>This number is the liquidation value of your account. It is the sum of the values of your positions and your current buying power. Returns a float</p>
        <p>Example</p>         
 
-          <div class="command-snippet">
+          <div class="snippet">
             account_value = td.getAccountValue()
 
             <p># Sample Output</br>
@@ -92,7 +92,7 @@
         <p>This method will return a dictionary of values that pertain to a specific position in your portfolio. It takes an optional argument for the ticker symbol you like to see information on. If no ticker symbol is given, it will return the information on every position of your portfolio</p>
         <p>Example</p>         
 
-        <div class="command-snippet">
+        <div class="snippet">
           data = td.getPositionValue(ticker='TSLA')
         </div>
         <p>Sample output can be found at the <a href="https://developer.tdameritrade.com/account-access/apis/get/accounts-0"> TD Ameritrade</a> Documentation</p>
@@ -103,7 +103,7 @@
       <p>Quick Warning:<i>Due to frequency of change to the data used in this class, these value may not always be 100% accurate</i></p>
 
         td.headers</br>
-           <li class="white-circle list-indent"> This is the value returned from authorizing the account</li>
+           <li class="white-circle indent"> This is the value returned from authorizing the account</li>
         td.accountID</br>
         td.currentPositions</br>
         td.buyingPower</br>
@@ -112,7 +112,7 @@
     <article class="tdExamplescript">
       <h2>Example Script</h2>
         <p>Below is an example of this class authorizing a TD account and getting the long quantitiy of a position if it held in the portfolio. Hopefully this will give you a better understanding on how to use this class.</p>
-          <div class="command-snippet">
+          <div class="snippet">
             
             from resources.TD.td import TD
 
@@ -128,5 +128,6 @@
 
     </article>
 </div>
+
 </body>
 </html>

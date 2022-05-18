@@ -60,7 +60,7 @@ article {
     color:#2d2dff;
     text-decoration: underline;
 }
-.command-snippet {
+.snippet {
     background-color: #f6f8fa;
     padding: 10px;
     width:fit-content;
@@ -69,7 +69,7 @@ article {
 .white-circle {
     list-style-type: circle;
 }
-.list-indent {
+.indent {
     margin-left: 40px;
 }
 /*responsive code*/

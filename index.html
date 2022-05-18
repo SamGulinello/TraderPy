@@ -27,13 +27,13 @@
   </article>
   <article class="installation">
   <h2>Installation</h2>
-  <span >
+  
    1. In the command line clone this repository</br>
-    <div class="command-snippet">git clone https://github.com/SamGulinello/TraderPY</div>
+    <div class="snippet">git clone https://github.com/SamGulinello/TraderPY</div>
    2. CD into the repository</br>
-    <div class="command-snippet">cd TraderPy</div>
+    <div class="snippet">cd TraderPy</div>
    3. Install the application</br>
-    <div class="command-snippet">pip3 install -r requirements.txt</div>
+    <div class="snippet">pip3 install -r requirements.txt</div>
    4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done <a href ="https://developer.tdameritrade.com/">here.</a></br> 
         <ul>
           <li class="white-circle"><b>This is seperate from your actual TD Ameritrade trading account.</b></li>
@@ -44,9 +44,9 @@
         <ul>
           <li class="white-circle">Fill out the required fields in the Add App screen. Select <b>Create App.</b></li>
           <li class=white-circle>Field details are as follows: 
-            <li class="list-indent"><b>App Name:</b> A unique application name.</li>
-            <li class="list-indent"><b>Callback URL:</b> The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
-            <li class="list-indent"><b>What is the purpose of your application?:</b> Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
+            <li class="indent"><b>App Name:</b> A unique application name.</li>
+            <li class="indent"><b>Callback URL:</b> The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
+            <li class="indent"><b>What is the purpose of your application?:</b> Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
             <li class="white-circle">The new application will be displayed in <a href= "https://developer.tdameritrade.com/user/me/apps">My Apps</a> once it is successfully registered</li>
             <li class="white-circle">For more information on this process, they provide good <a href = "https://developer.tdameritrade.com/guides">guides.</a></li>
           </li>
@@ -57,32 +57,32 @@
    7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (<em>indicated in all caps text</em>) </br>
         <ul>
           <li class="white-circle">Required information is as follows: </li>
-          <li class="list-indent">client_id: This is the <b>Consumer Key</b> of the successfully registered app on your TD Ameritrade developer account</li>
-          <li class="list-indent">account_number: This can be found in the <b>My Profile</b> page on TD Ameritrades Trading Website</li>
-          <li class="list-indent">username: This is your TD Ameritrade Trading Account Username</li>
-          <li class="list-indent">password: This is your TD Ameritrade Trading Account Password</li>
-          <li class="list-indent">chrome_driver: This is the absolute path to the chrome driver executable</li>
-          <li class="list-indent">security_questions: The answers would have been determined when setting up the TD Ameritrade account.</li>
+          <li class="indent">client_id: This is the <b>Consumer Key</b> of the successfully registered app on your TD Ameritrade developer account</li>
+          <li class="indent">account_number: This can be found in the <b>My Profile</b> page on TD Ameritrades Trading Website</li>
+          <li class="indent">username: This is your TD Ameritrade Trading Account Username</li>
+          <li class="indent">password: This is your TD Ameritrade Trading Account Password</li>
+          <li class="indent">chrome_driver: This is the absolute path to the chrome driver executable</li>
+          <li class="indent">security_questions: The answers would have been determined when setting up the TD Ameritrade account.</li>
         </ul>
 
    8. To run this project open up your command line and go to the root directory of this project. Once in the root directory just type</br>
-    <div class="command-snippet">python3 main.py</div>     
-  </span>
+    <div class="snippet">python3 main.py</div>     
+
   </article>
   <article class="contribute">
     <h2>Contribute</h2>
     <p>This project is still very early in development and I am currently seeking contributors. 
-      If you wish to contribute please fork the repository and make any changes to the code. Afterwards submit a pull request and I will review it. If you believe something is missing or done incorrectly feel free to change it and explain why. This project has always been a learning excersise for me and I continue to keep it as that.</p>
+      If you wish to contribute please fork the <a href="https://github.com/SamGulinello/TraderPy">repository</a> and make any changes to the code. Afterwards submit a pull request and I will review it. If you believe something is missing or done incorrectly feel free to change it and explain why. This project has always been a learning excersise for me and I continue to keep it as that.</p>
   </article>
   <article class="creatingaModule">
     <h2>Creating a Module</h2>
     <p>
       To create a module you will first want to import the config file. The main function of this program sets the root directory to make an import of the config file look like this.
-    <div class="command-snippet">from config.config import config</div>
+    <div class="snippet">from config.config import config</div>
     <p>
       In the config file you need to include the name of the module and set it the the key "module". An example of a module specific config looks like this. 
       It is used for a module that compares the 10 and 30 moving averages of the S&P 500 and trades stocks accordingly.</p>
-      <div class="command-snippet">{ </br>
+      <div class="snippet">{ </br>
         "module" : "MovingAverage",</br>
         "buying_power_allocation": 30, # Percentage of available buying power</br>
         "index" : "S&P"</br>
