@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main.css">
+    <title>TraderPy</title>
+</head>
+<body>
+    <div class="header">
+      <a href="../index.html" class="headerLeft">Home</a>
+      <a href="../index.html" class="headerMiddle">TraderPy</a>
+              <a class="headerRight" href="../index.html#contact">Contact</a>
+   </div> 
+<div class="sideNav">
+<ul>
+  <a href="./Stock_Class.html" class="navItems">Stock Class</a>
+  <a href="./TD_Class.html" class="navItems active">TD Class</a>
+</ul>
+</div>
+
+<div class="main">
+    <article class="tdAmeritrade">
+    <h2>TD Ameritrade API</h2>
+    <p>This class is what interacts with the TD Ameritrade API. It's main tool is the 'Requests' library since the API is designed to retrieve HTTP requests and return the data in the form of JSON. Below are all the methods and attributes that can be used with this class. If you feel like some functionality is missing, please reach out. This class and documentation will be added too continuously as development continues.</p>
+    </article>
+    <article class="tdMethods">
+    <h2>Methods</h2>
+    <h3>Authorize Your Account</h3>
+        <p>This method is <b>NECESSARY FOR OTHER REQUESTS TO BE MADE</b>. It should be executed at the beginning of the module. It authorizes the app with TD Ameritrade and returns a unique value to verify other requests. The value only lasts for 30 minutes so keep that in mind. There are no inputs to this function.</p>
+
+    <h3>Get Account Data</h3>
+        <p>This method will return a json dictionary full of account details. It requires no input values but be sure to have authorized the account within 30 minutes of calling this function.</p>
+          <p>Example</p>  
+
+          <div class="snippet">
+            account = td.accountEndpoint()
+          </div>
+            <p>See <a href="https://developer.tdameritrade.com/account-access/apis/get/accounts-0">TD Documentation</a> for sample output.(Too long to include here)</p>
+
+    <h3>Get Current Positions</h3>
+        <p>This method will return a dictionary of the stocks held in your portfolio paired with the quantity. The first position listed will be named MMDA1. This is a name TD Ameritrade gives to the account they use to invest your free money. Feel free to ignore it. This method returns a dictionary.</p>
+        <p>Example</p>   
+
+          <div class="snippet">
+            positions = td.getPositions()
+
+            <p>#Sample Output</br>
+            {'MMDA1': 600.00, 'BABA' : 2, 'TSLA' : 5}</p>
+
+          </div>
+
+    <h3>Get Account ID</h3>
+        <p>The Account ID is commonly used in other methods within the class. TD Ameritrade uses it as a verifier. This is seperate from the client_id specified in config. Returns and int.</p>
+        <p>Example</p>         
+
+          <div class="snippet">
+            account_id = td.getAccountID()
+
+           <p> #Sample Output</br>
+            12345678</p>
+
+          </div>
+
+    <h3>Get Current Buying Power</h3>
+        <p>The buying power is a measure of spendable cash on new stocks. This is an essential number to know when going to buy positions. Returns and float</p>
+        <p>Example</p>         
+
+          <div class="snippet">
+            buying_power = td.getBuyingPower()
+
+            <p>#Sample Output</br>
+            123.00</p>
+
+          </div>
+
+    <h3>Get Current Account Value</h3>
+       <p>This number is the liquidation value of your account. It is the sum of the values of your positions and your current buying power. Returns a float</p>
+       <p>Example</p>         
+
+          <div class="snippet">
+            account_value = td.getAccountValue()
+
+            <p># Sample Output</br>
+            1000.00</p>
+          </div>
+
+     <h3>Get Data on a Specific Position Held in Your Portfolio</h3>
+        <p>This method will return a dictionary of values that pertain to a specific position in your portfolio. It takes an optional argument for the ticker symbol you like to see information on. If no ticker symbol is given, it will return the information on every position of your portfolio</p>
+        <p>Example</p>         
+
+        <div class="snippet">
+          data = td.getPositionValue(ticker='TSLA')
+        </div>
+        <p>Sample output can be found at the <a href="https://developer.tdameritrade.com/account-access/apis/get/accounts-0"> TD Ameritrade</a> Documentation</p>
+
+    </article>
+    <article class="tdAttributes">
+      <h2>Attributes</h2>
+      <p>Quick Warning:<i>Due to frequency of change to the data used in this class, these value may not always be 100% accurate</i></p>
+
+        td.headers</br>
+           <li class="white-circle indent"> This is the value returned from authorizing the account</li>
+        td.accountID</br>
+        td.currentPositions</br>
+        td.buyingPower</br>
+
+    </article>
+    <article class="tdExamplescript">
+      <h2>Example Script</h2>
+        <p>Below is an example of this class authorizing a TD account and getting the long quantitiy of a position if it held in the portfolio. Hopefully this will give you a better understanding on how to use this class.</p>
+          <div class="snippet">
+            
+            from resources.TD.td import TD
+
+            <p>api = TD()</br>
+            ticker = 'FB'</br>
+            currentPositions = api.getPositions() </p>
+            
+            if ticker in currentPositions:</br>
+              <span class="indent">print(api.getPositionValue(ticker = ticker))</span></br>
+            else:</br>
+               <span class="indent">print(ticker + "is not in your current positions")</span>
+          </div>
+
+    </article>
+</div>
+
+</body>
+</html>
