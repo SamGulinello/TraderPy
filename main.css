@@ -32,6 +32,10 @@ body {
 article {
     line-height: 1.8;
 }
+.email {
+    color:#2d2dff;
+    text-decoration: underline;
+}
 .command-snippet {
     background-color: #f6f8fa;
     padding: 10px;

@@ -37,17 +37,17 @@
     <div class="command-snippet">pip3 install -r requirements.txt</div>
    4. To use this application you need to sign up for a TD Ameritrade developer account. This can be done <a href ="https://developer.tdameritrade.com/">here.</a></br> 
         <ul>
-          <li class="white-circle">This is seperate from your actual TD Ameritrade trading account.</li>
+          <li class="white-circle"><b>This is seperate from your actual TD Ameritrade trading account.</b></li>
           <li class="white-circle">To set up a Trading account, if you don't already have one, go to their <a href = "https://www.tdameritrade.com/">official website</a></li>
         </ul>
 
    5. Once an account has been created, you will need to create an application <a href =" https://developer.tdameritrade.com/user/me/apps/add">here</a> to be approved for the api. </br>
         <ul>
-          <li class="white-circle">Fill out the required fields in the Add App screen. Select Create App.</li>
+          <li class="white-circle">Fill out the required fields in the Add App screen. Select <b>Create App.</b></li>
           <li class=white-circle>Field details are as follows: 
-            <li class="list-indent">App Name: A unique application name.</li>
-            <li class="list-indent">Callback URL: The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
-            <li class="list-indent">What is the purpose of your application?: Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
+            <li class="list-indent"><b>App Name:</b> A unique application name.</li>
+            <li class="list-indent"><b>Callback URL:</b> The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well.</li>
+            <li class="list-indent"><b>What is the purpose of your application?:</b> Use cases of the application, trading strategy, number of orders sent per day, etc.</li>
             <li class="white-circle">The new application will be displayed in <a href= "https://developer.tdameritrade.com/user/me/apps">My Apps</a> once it is successfully registered</li>
             <li class="white-circle">For more information on this process, they provide good <a href = "https://developer.tdameritrade.com/guides">guides.</a></li>
           </li>
@@ -55,11 +55,11 @@
 
    6. This project uses a python library called selenium. It is used to for web scraping and is essential for some of the methods to work. This library requires a <a href= "https://chromedriver.chromium.org/downloads">chrome driver</a> to be installed on your machine and the path to the executable needs to be included in the config file. This needs to be the absolute path not the relative one (Google will tell you how to find this if you don't know). The resources directory has an folder waiting for you to install the chrome driver into it. Replace the sample driver with your newly installed version.</br>
   
-   7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (indicated in all caps text) </br>
+   7. Finally make a copy of the sample config file and name it config.py. Fill out the required information (<em>indicated in all caps text</em>) </br>
         <ul>
           <li class="white-circle">Required information is as follows: </li>
-          <li class="list-indent">client_id: This is the Consumer Key of the successfully registered app on your TD Ameritrade developer account</li>
-          <li class="list-indent">account_number: This can be found in the My Profile page on TD Ameritrades Trading Website</li>
+          <li class="list-indent">client_id: This is the <b>Consumer Key</b> of the successfully registered app on your TD Ameritrade developer account</li>
+          <li class="list-indent">account_number: This can be found in the <b>My Profile</b> page on TD Ameritrades Trading Website</li>
           <li class="list-indent">username: This is your TD Ameritrade Trading Account Username</li>
           <li class="list-indent">password: This is your TD Ameritrade Trading Account Password</li>
           <li class="list-indent">chrome_driver: This is the absolute path to the chrome driver executable</li>
@@ -106,7 +106,7 @@
   </article>
   <article class="Support">
     <h2>Support</h2>
-    <p>If you have any question or feedback please let me know. You can contact me at sgulinello12@gmail.com. 
+    <p>If you have any question or feedback please let me know. You can contact me at <span class="email">sgulinello12@gmail.com</span>. 
       I will try my best to respond promptly. I hope to contribute to this project regularly because there is so much I would like to do with it. I am a full time college student so I can't promise anything.</p>
   </article>
   <article class="Sponsorship">
@@ -117,7 +117,7 @@
   <article class="Legal Things">
     <h2>Legal Things</h2>
     <p>I just want it on record that I am not personally responsible for the funds in your trading account. What you do with your money is completely seperate from the programs I write. This project is honestly just an exercise in a lot of programming practices I wanted to learn more about. This should in no way be your primary decision maker with large quantities of your financials. I also assume bugs will occur as they have before when developing this. 
-      I try to program in safe guards though that will protect your funds. Also please be aware of any personal information you use with this. When pushing something to githup please add your specific config file to a .gitignore. That file with contain sensitive information which I am assuming you don't want on the internet. Thank you and enjoy :)</p>
+      I try to program in safe guards though that will protect your funds. Also please be aware of any personal information you use with this. <b>When pushing something to githup please add your specific config file to a .gitignore.</b> That file with contain sensitive information which I am assuming you don't want on the internet. Thank you and enjoy :)</p>
   </article>
 </div>
 </body>
