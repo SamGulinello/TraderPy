@@ -78,6 +78,14 @@ This class is what interacts with the TD Ameritrade API. It's main tool is the '
 
    Sample output can be found at the [TD Ameritrade](https://developer.tdameritrade.com/account-access/apis/get/accounts-0) documentation.
 
+## Get Transaction History
+   This method will return the transaction history with an optional time span. It takes in an optional reference date and returns transaction data from the reference to the current date. The default time span goes back 30 days.
+
+   Example
+   ```
+   transactions = td.getOrders(timespan=7)
+   ```
+
 # Attributes
 
 Quick Warning: *Due to frequency of change to the data used in this class, these value may not always be 100% accurate*
