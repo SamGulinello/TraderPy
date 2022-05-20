@@ -21,12 +21,16 @@ thread_stop_event = Event()
 td = TD()
 print('TD Object Created')
 
-def getAccountValue():
+def getAccountData():
     while not thread_stop_event.isSet():
         number = td.getAccountValue()
         number = "${:,.2f}". format(number)
-        print(number)
         socketio.emit('newnumber', {'number': number}, namespace='/test')
+
+        orders = td.getOrders()
+        orders=orders[0]
+        print(orders)
+        socketio.emit('neworder', {'order': orders["orderLegCollection"][0]["instrument"]["symbol"], 'orderType': "{}".format(orders["orderLegCollection"][0]["instruction"])}, namespace='/test')
         socketio.sleep(5)
 
 
@@ -43,7 +47,7 @@ def test_connect():
 
     if not async_thread.is_alive():
         print("Starting Thread")
-        async_thread = socketio.start_background_task(getAccountValue)
+        async_thread = socketio.start_background_task(getAccountData)
 
 @socketio.on('disconnect', namespace='/test')
 def test_disconnect():

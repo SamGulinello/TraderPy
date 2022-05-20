@@ -14,6 +14,7 @@ from config.config import config
 import requests
 import urllib
 import time
+from datetime import date, timedelta
 
 # Valuable Account Information Necessary for API
 client_id = config["client_id"]
@@ -263,6 +264,23 @@ class TD():
                 return(positionData)
             except:
                 return("Failed to get position data. Please ensure the ticker used is held in your portfolio")
+    
+    def getOrders(self, timespan=30):
+        print("GETTING ACCOUNT ORDERS")
+
+        # Define Endpoint
+        endpoint = r"https://api.tdameritrade.com/v1/orders"
+
+        # Create Time Range
+        currentDate = date.today()
+        refDate = currentDate - timedelta(days=timespan)\
+
+        # Make a Request
+        content = requests.get(url = endpoint, headers = self.headers, params={'accountId': self.accountID, 'fromEnteredTime':refDate, 'toEnteredTime':currentDate})
+
+        # Convert it to a dictionary Method
+        data = content.json()
+        return data
 
 
 

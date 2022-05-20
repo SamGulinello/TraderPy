@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
     <script src="static/js/application.js"></script>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <style>
         body {
             background-color: black;
         }
-        
-        #content {
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
             color: white;
             text-align: center;
+        }
+
+        .buy {
+            color: lightgreen;
+        }
+
+        .sell {
+            color: lightcoral;
         }
     </style>
 </head>
@@ -21,8 +36,14 @@
 
 <div class="container" id="content">
     <div class="row">
-        <h1>ACCOUNT BALANCE</h1>
-        <div id="log">
+        <div class="column">
+            <h1>ACCOUNT BALANCE</h1>
+            <div id="log"></div>
+        </div>
+        <div class="column">
+            <h1>RECENT TRANSACTIONS</h1>
+            <div class="buy"></div>
+            <div class="sell"></div>
         </div>
     </div>
 </div>
